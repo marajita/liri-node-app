@@ -60,10 +60,19 @@ function callSpotify() {
     var songName = data.tracks.items[0].name;
     var previewLink = data.tracks.items[0].preview_url;
     var albumName = data.tracks.items[0].album.name;
-    console.log("Name of the artist: " + artistNames);
-    console.log("Name of the song: " + songName);
+    console.log("Name of the Artist(s): " + artistNames);
+    logToFile("Name of the Artist(s): " + artistNames);
+    console.log("Name of the Song: " + songName);
+    logToFile("Name of the Song: " + songName);
     console.log("Song Link: " + previewLink);
-    console.log("Name of the album: " + albumName);
+    logToFile("Song Link: " + previewLink);
+    console.log("Name of the Album: " + albumName);
+    console.log(
+      "************************************************************************************************************"
+    );
+    logToFile(
+      "************************************************************************************************************"
+    );
   });
 }
 function callConcertFind() {
@@ -109,15 +118,30 @@ function callMovieFind() {
     }
 
     console.log("Title of the movie: " + response.data.Title);
+    logToFile("Title of the movie: " + response.data.Title);
     console.log("Year the movie came out:" + response.data.Released);
+    logToFile("Year the movie came out:" + response.data.Released);
     console.log("IMDB Rating of the movie: " + response.data.imdbRating);
+    logToFile("IMDB Rating of the movie: " + response.data.imdbRating);
     console.log("Rotten Tomatoes Rating of the movie: " + rottenTmt);
+    logToFile("Rotten Tomatoes Rating of the movie: " + rottenTmt);
     console.log(
       "Country where the movie was produced: " + response.data.Country
     );
+    logToFile("Country where the movie was produced: " + response.data.Country);
+
     console.log("Language of the movie: " + response.data.Language);
+    logToFile("Language of the movie: " + response.data.Language);
     console.log("Plot of the movie: " + response.data.Plot);
+    logToFile("Plot of the movie: " + response.data.Plot);
     console.log("Actors in the movie: " + response.data.Actors);
+    logToFile("Actors in the movie: " + response.data.Actors);
+    console.log(
+      "************************************************************************************************************"
+    );
+    logToFile(
+      "************************************************************************************************************"
+    );
   });
 }
 
