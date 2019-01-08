@@ -60,6 +60,8 @@ function callSpotify() {
     var songName = data.tracks.items[0].name;
     var previewLink = data.tracks.items[0].preview_url;
     var albumName = data.tracks.items[0].album.name;
+    console.log("*** Spotify details are here *** ");
+    logToFile("*** Spotify details are here *** ");
     console.log("Name of the Artist(s): " + artistNames);
     logToFile("Name of the Artist(s): " + artistNames);
     console.log("Name of the Song: " + songName);
@@ -67,14 +69,12 @@ function callSpotify() {
     console.log("Song Link: " + previewLink);
     logToFile("Song Link: " + previewLink);
     console.log("Name of the Album: " + albumName);
-    console.log(
-      "************************************************************************************************************"
-    );
-    logToFile(
-      "************************************************************************************************************"
-    );
+    logToFile("Name of the Album: " + albumName);
+    console.log(" ");
+    logToFile(" ");
   });
 }
+
 function callConcertFind() {
   var queryUrl =
     "https://rest.bandsintown.com/artists/" +
@@ -82,8 +82,11 @@ function callConcertFind() {
     "/events?app_id=codingbootcamp";
   axios.get(queryUrl).then(function(response) {
     var allConcerts = response.data;
+    console.log("*** Band in Town details are here *** ");
+    logToFile("*** Band in Town details are here *** ");
     for (var i = 0; i < allConcerts.length; i++) {
       var concert = allConcerts[i];
+
       console.log("Name of the venue: " + concert.venue.name);
       logToFile("Name of the venue: " + concert.venue.name);
       console.log("Venue location: " + concert.venue.city);
@@ -101,6 +104,8 @@ function callConcertFind() {
         "-----------------------------------------------------------"
       );
       logToFile("-----------------------------------------------------------");
+      console.log(" ");
+      logToFile(" ");
     }
   });
 }
@@ -116,6 +121,8 @@ function callMovieFind() {
         rottenTmt = ratingsLists[i].Value;
       }
     }
+    console.log("*** Movie details are here *** ");
+    logToFile("*** Movie details are here *** ");
 
     console.log("Title of the movie: " + response.data.Title);
     logToFile("Title of the movie: " + response.data.Title);
@@ -136,12 +143,8 @@ function callMovieFind() {
     logToFile("Plot of the movie: " + response.data.Plot);
     console.log("Actors in the movie: " + response.data.Actors);
     logToFile("Actors in the movie: " + response.data.Actors);
-    console.log(
-      "************************************************************************************************************"
-    );
-    logToFile(
-      "************************************************************************************************************"
-    );
+    console.log(" ");
+    logToFile(" ");
   });
 }
 
