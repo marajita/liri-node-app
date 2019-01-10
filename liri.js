@@ -9,8 +9,6 @@ var spotify = new Spotify(keys.spotify);
 var command = process.argv[2];
 var para = process.argv[3];
 var trackName;
-var movieName;
-
 if (command === "spotify-this-song") {
   callSpotify();
 } else if (command === "concert-this") {
