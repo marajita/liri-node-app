@@ -1,8 +1,8 @@
-#Project Overview
+# Project Overview
 
 This project was an assignment in the UNC Chapel Hill FullStack Coding Program. Using the command line and Node.js users can use this to console out one information about either spotify or a movie and multiple results for the concerts.
 
-#Technologies used
+# Technologies used
 
 The following technologies, tools, and npm packages were used:
 
