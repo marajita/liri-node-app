@@ -9,6 +9,8 @@ var spotify = new Spotify(keys.spotify);
 var command = process.argv[2];
 var para = process.argv[3];
 var trackName;
+var movieName;
+
 if (command === "spotify-this-song") {
   callSpotify();
 } else if (command === "concert-this") {
@@ -43,10 +45,7 @@ function callSpotify() {
   } else {
     trackName = "The Sign Ace of Base";
   }
-  spotify.search({ type: "track", query: trackName, limit: 1 }, function(
-    err,
-    data
-  ) {
+  spotify.search({ type: "track", query: trackName }, function(err, data) {
     if (err) {
       return console.log("Error occurred: " + err);
     }
@@ -60,8 +59,8 @@ function callSpotify() {
     var songName = data.tracks.items[0].name;
     var previewLink = data.tracks.items[0].preview_url;
     var albumName = data.tracks.items[0].album.name;
-    console.log("*** Spotify details are here *** ");
-    logToFile("*** Spotify details are here *** ");
+    console.log("============ Spotify details are here ============");
+    logToFile("============ Spotify details are here ============");
     console.log("Name of the Artist(s): " + artistNames);
     logToFile("Name of the Artist(s): " + artistNames);
     console.log("Name of the Song: " + songName);
@@ -82,8 +81,8 @@ function callConcertFind() {
     "/events?app_id=codingbootcamp";
   axios.get(queryUrl).then(function(response) {
     var allConcerts = response.data;
-    console.log("*** Band in Town details are here *** ");
-    logToFile("*** Band in Town details are here *** ");
+    console.log("============ Band in Town details are here ============");
+    logToFile("============ Band in Town details are here ============");
     for (var i = 0; i < allConcerts.length; i++) {
       var concert = allConcerts[i];
 
@@ -110,8 +109,13 @@ function callConcertFind() {
   });
 }
 function callMovieFind() {
+  if (para !== undefined) {
+    movieName = para;
+  } else {
+    movieName = "Mr. Nobody";
+  }
   var queryUrl =
-    "http://www.omdbapi.com/?t=" + para + "&y=&plot=short&apikey=trilogy";
+    "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
   axios.get(queryUrl).then(function(response) {
     var ratingsLists = response.data.Ratings;
     var rottenTmt;
@@ -121,8 +125,8 @@ function callMovieFind() {
         rottenTmt = ratingsLists[i].Value;
       }
     }
-    console.log("*** Movie details are here *** ");
-    logToFile("*** Movie details are here *** ");
+    console.log("============ Movie details are here ============");
+    logToFile("============ Movie details are here ============");
 
     console.log("Title of the movie: " + response.data.Title);
     logToFile("Title of the movie: " + response.data.Title);
