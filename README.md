@@ -46,11 +46,11 @@ For do-what-it-says-command, the program will take the text inside of random.txt
 
 # do-what-it-says (movie)
 
-![GitHub Logo](/images/do-what-movie.gif)
+![GitHub Logo](/images/do-what_movie.gif)
 
 # do-what-it-says (spotify)
 
-![GitHub Logo](/images/do-what-spotify.gif)
+![GitHub Logo](/images/do-what_spotify.gif)
 
 # Author
 Rajita - \* Javascript, Node.js
